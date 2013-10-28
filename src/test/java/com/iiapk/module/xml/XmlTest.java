@@ -24,13 +24,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class XmlTry {
+public class XmlTest {
 
 	Document document;
 	XMLEventReader reader;
 	Map<String, String> map = new HashMap<String, String>();
 
-	public XmlTry(File file) {
+	public XmlTest(File file) {
 		init(file);
 	}
 
@@ -108,6 +108,6 @@ public class XmlTry {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(new XmlTry(new File("test.xml")).parseByStax());
+		System.out.println(new XmlTest(new File("test.xml")).parseByStax());
 	}
 }

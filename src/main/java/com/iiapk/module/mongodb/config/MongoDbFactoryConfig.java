@@ -1,4 +1,4 @@
-package com.iiapk.module.mongodb;
+package com.iiapk.module.mongodb.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.authentication.UserCredentials;
@@ -9,12 +9,12 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import com.mongodb.Mongo;
 
 //@Configuration
-public class MongoConfiguration {
+public class MongoDbFactoryConfig {
+	
 	public @Bean
 	MongoDbFactory mongoDbFactory() throws Exception {
 		UserCredentials userCredentials = new UserCredentials("joe", "secret");
-		return new SimpleMongoDbFactory(new Mongo(), "database",
-				userCredentials);
+		return new SimpleMongoDbFactory(new Mongo(), "mongodb",userCredentials);
 	}
 
 	public @Bean

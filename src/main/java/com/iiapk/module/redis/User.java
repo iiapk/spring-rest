@@ -5,6 +5,16 @@ public class User {
 	private String id;
 	
 	private String name;
+	
+	private String address;
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public String getId() {
 		return id;
