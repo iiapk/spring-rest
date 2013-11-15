@@ -3,7 +3,7 @@
 	
 	<parent>
 		<groupId>com.iiapk</groupId>
-		<artifactId>spring-rest</artifactId>
+		<artifactId>spring-rest-demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
