@@ -15,6 +15,7 @@
 		<org.apache.cxf.version>2.6.1</org.apache.cxf.version>
 		<spring.security.version>3.1.4.RELEASE</spring.security.version>
 		<org.apache.maven.plugins.version>2.4</org.apache.maven.plugins.version>
+		<org.apache.httpcomponents.version>4.3</org.apache.httpcomponents.version>
 	</properties>
 
 	<modules>
@@ -96,6 +97,13 @@
 				<version>1.8.3</version>
 				<type>test-jar</type>
 				<scope>test</scope>
+			</dependency>
+			
+			<!-- ssl -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>${org.apache.httpcomponents.version}</version>
 			</dependency>
 
 			<!-- servlet-api -->

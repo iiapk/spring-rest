@@ -11,9 +11,7 @@
 	<name>spring-rest-demo</name>
 	<description>spring-rest-demo</description>
 
-	<groupId>com.iiapk</groupId>
 	<artifactId>spring-rest-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
