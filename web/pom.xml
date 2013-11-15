@@ -13,9 +13,15 @@
 
 	<groupId>com.iiapk.rest.web</groupId>
 	<artifactId>spring-rest-web</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.iiapk.rest.cxf</groupId>
+			<artifactId>spring-rest-cxf</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<!-- spring-web -->
 		<dependency>
@@ -44,32 +50,53 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 		</dependency>
-		
-		<!-- servlet-api -->
-			<dependency>
-				<groupId>org.apache.geronimo.specs</groupId>
-				<artifactId>geronimo-servlet_2.5_spec</artifactId>
-				<scope>provided</scope>
-				<version>1.2</version>
-			</dependency>
 
-			<!-- jstl -->
-			<dependency>
-				<groupId>jstl</groupId>
-				<artifactId>jstl</artifactId>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>taglibs</groupId>
-				<artifactId>standard</artifactId>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>javax.servlet.jsp</groupId>
-				<artifactId>jsp-api</artifactId>
-				<scope>provided</scope>
-			</dependency>
+		<!-- servlet-api -->
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-servlet_2.5_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>10086</port>
+						</connector>
+					</connectors>
+					<webAppConfig>
+						<contextPath>/spring-rest</contextPath>
+					</webAppConfig>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
 
 </project>

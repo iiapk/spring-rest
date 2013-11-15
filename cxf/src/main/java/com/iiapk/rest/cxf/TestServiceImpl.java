@@ -1,7 +1,6 @@
 package com.iiapk.rest.cxf;
 
-import javax.xml.ws.Endpoint;
-
+import java.util.Calendar;
 
 public class TestServiceImpl implements TestService{
 
@@ -10,9 +9,13 @@ public class TestServiceImpl implements TestService{
 		return text;
 	}
 	
-	public static void main(String[] args) {
-		TestService testService = new TestServiceImpl();
-		Endpoint endpoint = Endpoint.publish("http://localhost:8080/test", testService);
-	}
+	@Override
+	public Customer findCustomer(String id) {  
+        Customer customer = new Customer();  
+        customer.setId("customer_" + id);  
+        customer.setName("customer_name");  
+        customer.setBirthday(Calendar.getInstance().getTime());  
+        return customer;  
+    }  
 	
 }

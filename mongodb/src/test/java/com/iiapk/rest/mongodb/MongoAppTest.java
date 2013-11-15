@@ -5,9 +5,6 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.Resource;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -34,7 +31,7 @@ public class MongoAppTest {
 	private List<Person> list = new ArrayList<Person>();
 	private MongoOperations mongoOps;
 	
-	 @Autowired
+	@Autowired
 	private PersonRepository personRepository;
 	
 	@Before  

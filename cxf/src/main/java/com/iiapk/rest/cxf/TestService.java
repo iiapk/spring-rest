@@ -11,5 +11,7 @@ public interface TestService {
 	
 	@WebMethod
 	@WebResult String sayHi(@WebParam String text);
-
+	
+	@WebMethod
+	@WebResult Customer findCustomer(String id);
 }

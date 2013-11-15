@@ -29,6 +29,7 @@ public class XmlTest {
 	Document document;
 	XMLEventReader reader;
 	Map<String, String> map = new HashMap<String, String>();
+	private static String TEST_XML_FILE = "src/main/resources/test.xml";
 
 	public XmlTest(File file) {
 		init(file);
@@ -98,7 +99,7 @@ public class XmlTest {
 			System.out.println("size=" + nodes.getLength());
 			for (int i = 0, len = nodes.getLength(); i < len; i++) {
 				Node node = nodes.item(i);
-				String value = node.getTextContent();
+				//String value = node.getTextContent();
 				System.out.println(node.getAttributes().item(0).toString());
 			}
 		} catch (XPathExpressionException e) {
@@ -108,6 +109,6 @@ public class XmlTest {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(new XmlTest(new File("test.xml")).parseByStax());
+		System.out.println(new XmlTest(new File(TEST_XML_FILE)).parseByStax());
 	}
 }

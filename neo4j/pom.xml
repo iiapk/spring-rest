@@ -13,7 +13,6 @@
 
 	<groupId>com.iiapk.rest.neo4j</groupId>
 	<artifactId>spring-rest-neo4j</artifactId>
-	<packaging>jar</packaging>
 
 	<dependencies>
 

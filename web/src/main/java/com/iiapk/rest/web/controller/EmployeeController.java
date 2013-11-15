@@ -21,7 +21,7 @@ import com.iiapk.rest.web.EmployeeList;
 import com.iiapk.rest.web.EmployeeService;
 
 
-@Controller
+//@Controller
 public class EmployeeController {
 
 	private ObjectMapper objectMapper = new ObjectMapper();
