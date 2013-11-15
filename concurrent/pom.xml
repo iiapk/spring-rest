@@ -10,7 +10,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>spring-rest-concurrent</name>
 	<description>spring-rest-concurrent</description>
-
 	<groupId>com.iiapk.rest.concurrent</groupId>
 	<artifactId>spring-rest-concurrent</artifactId>
 

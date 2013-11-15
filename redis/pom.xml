@@ -10,10 +10,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>spring-rest-redis</name>
 	<description>spring-rest-redis</description>
-
 	<groupId>com.iiapk.rest.redis</groupId>
 	<artifactId>spring-rest-redis</artifactId>
-	<packaging>jar</packaging>
 
 	<dependencies>
 

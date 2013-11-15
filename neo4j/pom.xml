@@ -10,7 +10,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>spring-rest-neo4j</name>
 	<description>spring-rest-neo4j</description>
-
 	<groupId>com.iiapk.rest.neo4j</groupId>
 	<artifactId>spring-rest-neo4j</artifactId>
 
