@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 消息中介 -->
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+	</bean>
+
+	<!-- 队列目的地 -->
+	<bean id="myQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="notifyQueue" />
+	</bean>
+
+	<!-- 订阅目的地 -->
+	<bean id="myTopic" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg index="0" value="notifyTopic" />
+	</bean>
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<!-- 设置默认的消息目的地 -->
+		<property name="defaultDestination" ref="myQueue" />
+		<!-- 由于receiver方法是同步的，所以我们在这里对接收设置超时时间 -->
+		<property name="receiveTimeout" value="60000" />
+	</bean>
+
+	<!-- 消息发送者 -->
+	<bean id="producer" class="com.iiapk.rest.jms.JMSProducer">
+		<property name="jmsTemplate" ref="jmsTemplate" />
+		<!-- 消息目的地，因为jmsTemplate有默认的了，所以这里可以省略 <property name="destination" ref="myQueue 
+			"/> -->
+	</bean>
+
+	<!-- 接收消息，但它是同步的，会发生消息阻塞 -->
+	<bean id="receiver" class="com.iiapk.rest.jms.JMSReceiver">
+		<property name="jmsTemplate" ref="jmsTemplate" />
+	</bean>
+
+	<!-- 消息接收监听器用于异步接收消息，用这个就不能配receiver了 -->
+	<bean class="org.springframework.jms.listener.SimpleMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="myQueue" />
+		<!-- <property name="messageListener" ref="studentMDP" /> -->
+		<property name="messageListener" ref="pureMDPAdapter"/>
+	</bean>
+
+	<bean id="pureMDPAdapter"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<property name="delegate" ref="pureStudentMDP" />
+		<property name="defaultListenerMethod" value="process" />
+	</bean>
+
+	<!-- 消息驱动pojo -->
+	<bean id="studentMDP" class="com.iiapk.rest.jms.StudentMDP" />
+
+	<bean id ="pureStudentMDP" class="com.iiapk.rest.jms.PureStudentMDP"/>
+
+</beans>

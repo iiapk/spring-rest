@@ -21,13 +21,14 @@ public class EmbeddedNeo4jWithIndexing {
 	public EmbeddedNeo4jWithIndexing() {
 		super();
 		graphDb = new GraphDatabaseFactory().newEmbeddedDatabase(DB_PATH);
+		nodeIndex = graphDb.index().forNodes( "nodes" );
+		System.out.println(nodeIndex.getName());
 		registerShutdownHook( graphDb );
 	}
 	
 	public void doSomething(){
-		nodeIndex = graphDb.index().forNodes( "nodes" );
 		firstNode = graphDb.createNode();
-		graphDb.getReferenceNode().createRelationshipTo(firstNode, RelTypes.USERS_REFERENCE );
+		//graphDb.getReferenceNode().createRelationshipTo(firstNode, RelTypes.USERS_REFERENCE );
 		for ( int id = 0; id < 100; id++ )
 	    {
 	        Node userNode = createAndIndexUser( idToUserName( id ) );
@@ -58,7 +59,7 @@ public class EmbeddedNeo4jWithIndexing {
 		Transaction tx = graphDb.beginTx();
 		try
 		{
-			doSomething();
+			//doSomething();
 		    tx.success();
 		}
 		finally

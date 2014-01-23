@@ -1,12 +1,9 @@
 package com.iiapk.rest.web.controller;
 
-import java.io.IOException;
 import java.util.List;
 
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.oxm.xstream.XStreamMarshaller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,33 +16,27 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iiapk.rest.web.Employee;
 import com.iiapk.rest.web.EmployeeList;
 import com.iiapk.rest.web.EmployeeService;
+import com.thoughtworks.xstream.XStream;
 
 
-//@Controller
+@Controller
 public class EmployeeController {
 
-	private ObjectMapper objectMapper = new ObjectMapper();
-	private static final String XML_VIEW_NAME = "employees";
+	private static final String XML_VIEW_NAME = "xmlView";
 
 	@Autowired
 	private EmployeeService employeeService;
+	
+	private XStream xStream = new XStream();
 
 	public void setEmployeeService(EmployeeService employeeService) {
 		this.employeeService = employeeService;
 	}
 
-	/*
-	 * private Jaxb2Marshaller jaxb2Mashaller;
-	 * 
-	 * public void setJaxb2Mashaller(Jaxb2Marshaller jaxb2Mashaller) {
-	 * this.jaxb2Mashaller = jaxb2Mashaller; }
-	 */
-
 	@RequestMapping(method = RequestMethod.GET, value = "/employee/{id}")
-	public String getEmployee(ModelMap model, @PathVariable String id) {
+	public ModelAndView getEmployee(ModelMap model, @PathVariable String id) {
 		Employee employee = employeeService.get(Long.parseLong(id));
-		model.put("employee", employee);
-		return XML_VIEW_NAME;
+		return new ModelAndView(XML_VIEW_NAME,"employee", employee);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/employeeTest/{id}")
@@ -54,18 +45,17 @@ public class EmployeeController {
 		return employee;
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/employees")
+	public ModelAndView getEmployees(ModelMap model) {
+		List<Employee> employees = employeeService.getAll();
+		EmployeeList list = new EmployeeList(employees);
+		return new ModelAndView(XML_VIEW_NAME,"employees",list);
+	}
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/employee/{id}")
 	public @ResponseBody Employee updateEmployee(@RequestBody Employee employee ) {
 		employeeService.update(employee);
 		return employee;
-	}
-
-	@RequestMapping(method = RequestMethod.GET, value = "/employees")
-	public String getEmployees(ModelMap model) {
-		List<Employee> employees = employeeService.getAll();
-		EmployeeList list = new EmployeeList(employees);
-		model.put("employees", list);
-		return XML_VIEW_NAME;
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/employees")
@@ -73,7 +63,6 @@ public class EmployeeController {
 		return employees;
 	}
 
-	
 
 	/*@RequestMapping(method = RequestMethod.POST, value = "/employee")
 	public ModelAndView addEmployee(@RequestBody String body) {
@@ -85,18 +74,7 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/test")
 	public ModelAndView test(String employees) {
-		objectMapper = new ObjectMapper();
-		Employee employee = null;
-		try {
-			employee = objectMapper.readValue(employees, Employee.class);
-		} catch (JsonParseException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return new ModelAndView(XML_VIEW_NAME, "employees", employee);
+		return new ModelAndView("employees");
 	}
 
 }

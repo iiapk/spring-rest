@@ -39,10 +39,10 @@ public class EmbeddedNeo4j {
 		}
 		finally
 		{
-		    System.out.print( firstNode.getProperty( "message" ) );
+			tx.finish();
+			System.out.print( firstNode.getProperty( "message" ) );
 			System.out.print( relationship.getProperty( "message" ) );
 			System.out.print( secondNode.getProperty( "message" ) );
-			tx.finish();
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package com.iiapk.rest.concurrent;
+package com.iiapk.rest.xml;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class XmlTest {
 	Document document;
 	XMLEventReader reader;
 	Map<String, String> map = new HashMap<String, String>();
-	private static String TEST_XML_FILE = "src/main/resources/test.xml";
+	private static String TEST_XML_FILE = "src/test/resources/test.xml";
 
 	public XmlTest(File file) {
 		init(file);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+  <title>china</title>
+  <author>jack@email.com</author>
+  <year>1</year>
+  <amount>jack</amount>
+  <bookmark>
+    <mark>test1</mark>
+    <location>test2</location>
+  </bookmark>
+</book>

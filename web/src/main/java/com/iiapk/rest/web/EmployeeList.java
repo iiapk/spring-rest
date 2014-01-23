@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "employees")
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("employeeList")
 public class EmployeeList implements Serializable{
 
 	private static final long serialVersionUID = 1L;

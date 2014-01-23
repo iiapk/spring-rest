@@ -1,5 +1,11 @@
 package com.iiapk.rest.web;
 
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.HttpVersion;
+import org.apache.http.message.BasicHttpRequest;
+import org.apache.http.message.BasicHttpResponse;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,6 +24,7 @@ public class SpringClient {
 	
 	@Before
 	public void prepare(){
+		
 	}
 	
 	@After
@@ -28,6 +35,15 @@ public class SpringClient {
 	@Test
 	public void testLocalBean(){
 		Assert.assertEquals(employeeService.getAll().size(),2);
+	}
+	
+	public static void main(String[] args) {
+		HttpRequest request = new BasicHttpRequest("GET", "/", HttpVersion.HTTP_1_1);
+		HttpResponse response = new BasicHttpResponse(HttpVersion.HTTP_1_1,HttpStatus.SC_OK, "OK1");
+		System.out.println(response.getProtocolVersion());
+		System.out.println(response.getStatusLine().getStatusCode());
+		System.out.println(response.getStatusLine().getReasonPhrase());
+		System.out.println(response.getStatusLine().toString());
 	}
 	
 }

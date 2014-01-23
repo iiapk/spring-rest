@@ -8,7 +8,7 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<name>spring-rest-rest</name>
+	<name>spring-rest-web</name>
 	<description>spring-rest-web</description>
 
 	<groupId>com.iiapk.rest.web</groupId>
@@ -75,6 +75,17 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- httpclient -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -85,6 +96,7 @@
 				<artifactId>maven-jetty-plugin</artifactId>
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<reload>automatic</reload>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
 							<port>10086</port>

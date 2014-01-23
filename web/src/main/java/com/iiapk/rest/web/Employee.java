@@ -2,9 +2,9 @@ package com.iiapk.rest.web;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-@XmlRootElement(name = "employee")
+@XStreamAlias("employee")
 public class Employee implements Serializable{
 
 	private static final long serialVersionUID = 1L;

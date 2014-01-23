@@ -18,6 +18,7 @@
 		<module>concurrent</module>
 		<module>neo4j</module>
 		<module>ssl</module>
+		<module>xml</module>
 		<!--  
 		<module>mongodb</module>
 		<module>redis</module>
