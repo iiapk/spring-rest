@@ -24,6 +24,7 @@ public class XStreamTest {
     private ObjectInputStream in = null;
     private Book book = null;
     private static String TEST_XML_FILE = "src/main/resources/bookxml.xml";
+    private static String CCB_XML_FILE = "src/main/resources/ccb.xml";
 	
 	@Before
     public void init() {
@@ -99,7 +100,7 @@ public class XStreamTest {
 	    System.out.println(xstream.toXML(book));
 	}
 	
-	@Test
+	//@Test
 	public void writeList2JETTSON() {
 		//xstream = new XStream(new JettisonMappedXmlDriver());
 		//删除根节点
@@ -116,6 +117,16 @@ public class XStreamTest {
         xstream.autodetectAnnotations(true);
 		System.out.println(xstream.toXML(BookList.getList()));
 		System.out.println(xstream.fromXML(xstream.toXML(BookList.getList())));
+	}
+	
+	@Test
+	public void xml2Bean() {
+		xstream.processAnnotations(new Class<?>[] {CcbRefundResult.class,CcbRefundResultInfo.class});
+		try {
+			System.out.println(xstream.fromXML(FileUtils.readFileToString(new File(CCB_XML_FILE))));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

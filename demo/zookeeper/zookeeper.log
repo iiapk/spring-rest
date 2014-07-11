@@ -1,0 +1,56 @@
+2014-02-25 15:39:05,512 WARN  server.NIOServerCnxn - Exception causing close of session 0x0 due to java.io.IOException: ZooKeeperServer not running
+2014-02-25 15:39:05,637 ERROR zoo.LeaderElection - org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /GroupMembers
+2014-02-25 15:39:07,481 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at com.iiapk.rest.zoo.LeaderElection.process(LeaderElection.java:67)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-02-25 15:39:07,497 ERROR zoo.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-02-25 15:39:07,497 ERROR zoo.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-02-25 15:39:39,324 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at com.iiapk.rest.zoo.LeaderElection.process(LeaderElection.java:67)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-02-25 15:39:39,340 ERROR zoo.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-02-25 15:40:37,230 WARN  server.NIOServerCnxn - Exception causing close of session 0x14467fb97c70001 due to java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2014-02-25 15:40:48,027 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at com.iiapk.rest.zoo.LeaderElection.process(LeaderElection.java:67)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-02-25 15:40:48,043 ERROR persistence.FileTxnSnapLog - 7(higestZxid) > 5(next log) for type -11
+2014-02-25 15:40:48,043 ERROR persistence.FileTxnSnapLog - 7(higestZxid) > 6(next log) for type -11
+2014-02-25 15:41:58,199 WARN  server.NIOServerCnxn - Exception causing close of session 0x14467fb97c70002 due to java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2014-02-25 15:42:54,120 WARN  server.NIOServerCnxn - Exception causing close of session 0x0 due to java.io.IOException: ZooKeeperServer not running
+2014-02-25 15:42:54,120 WARN  zookeeper.ClientCnxn - Session 0x0 for server localhost/127.0.0.1:2181, unexpected error, closing socket connection and attempting reconnect
+java.io.IOException: 您的主机中的软件放弃了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:33)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:104)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:75)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:334)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:117)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:355)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1068)
+2014-02-25 15:42:54,229 ERROR zoo.LeaderElection - org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /GroupMembers
+2014-02-25 15:42:56,104 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at com.iiapk.rest.zoo.LeaderElection.process(LeaderElection.java:67)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-02-25 15:42:59,229 ERROR zoo.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-02-25 15:53:57,159 WARN  server.NIOServerCnxn - Exception causing close of session 0x0 due to java.io.IOException: ZooKeeperServer not running
+2014-02-25 15:53:57,253 ERROR zoo.LeaderElection1 - org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /GroupMembers
+2014-02-25 15:53:58,863 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at com.iiapk.rest.zoo.LeaderElection1.process(LeaderElection1.java:67)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-02-25 15:55:13,777 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at com.iiapk.rest.zoo.LeaderElection.process(LeaderElection.java:67)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-02-25 16:20:06,906 WARN  server.NIOServerCnxn - Exception causing close of session 0x14467ff14b80001 due to java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2014-02-25 16:21:59,139 WARN  server.NIOServerCnxn - Exception causing close of session 0x14467ff14b80002 due to java.io.IOException: 远程主机强迫关闭了一个现有的连接。

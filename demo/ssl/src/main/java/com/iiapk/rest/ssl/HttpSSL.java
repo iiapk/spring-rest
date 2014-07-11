@@ -21,7 +21,7 @@ public class HttpSSL {
 	public void getHttpRequest() {
 		URL myURL;
 		try {
-			myURL = new URL("http://localhost:8080/hello.jsp?test=qweqwrt");
+			myURL = new URL("https://mybank.nbcb.com.cn/payment/merCheck.do");
 			URLConnection httpsConn = myURL.openConnection();
 			InputStreamReader insr = new InputStreamReader(
 					httpsConn.getInputStream());
@@ -82,8 +82,8 @@ public class HttpSSL {
 	}
 
 	public static void main(String[] args) {
-		// new HttpSSL().getHttpRequest();
-		new HttpSSL().getSSLHttpRequest();
+		new HttpSSL().getHttpRequest();
+		//new HttpSSL().getSSLHttpRequest();
 	}
 
 }

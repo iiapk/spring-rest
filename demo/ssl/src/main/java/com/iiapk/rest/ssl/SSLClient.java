@@ -20,7 +20,8 @@ public class SSLClient {
 
 	public static void main(String[] args) throws Exception {
 		System.setProperty("javax.net.ssl.trustStore", CLIENT_KEY_STORE);   
-        System.setProperty("javax.net.debug", "ssl,handshake");   
+        System.setProperty("javax.net.debug", "ssl,handshake");  
+        //System.out.println(System.getProperty("javax.net.ssl.trustStore"));
         SSLClient client = new SSLClient();   
         Socket s = client.clientWithoutCert();   
         PrintWriter writer = new PrintWriter(s.getOutputStream());   

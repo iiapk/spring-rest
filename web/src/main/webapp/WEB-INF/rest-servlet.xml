@@ -46,10 +46,10 @@
 		</property>
 		<property name="defaultViews">
 			<list>
-				<!-- <bean id="jsonView" class="com.iiapk.eyesblur.rest.MyMappingJacksonJsonView" 
-					/> -->
+				<bean id="jsonView" class="com.iiapk.eyesblur.rest.MyMappingJacksonJsonView" 
+					/> 
 				<!-- <bean id="jsonView"
-					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" /> -->
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" /> 
 				<bean id="xmlView"
 					class="org.springframework.web.servlet.view.xml.MarshallingView">
 					<constructor-arg>
@@ -57,7 +57,7 @@
 							<property name="autodetectAnnotations" value="true" />
 						</bean>
 					</constructor-arg>
-				</bean>
+				</bean>-->
 			</list>
 		</property>
 	</bean>
