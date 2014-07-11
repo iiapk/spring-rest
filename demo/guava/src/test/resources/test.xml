@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<expression-config>
+<expr oper="and">
+	<leftnode type="expr">
+		<expr oper="and">
+			<leftnode type="expr">
+				<expr oper="equal">
+					<leftnode type="var" value="Product1.id" />
+					<righnode type="const" value="DDA" />
+				</expr>
+			</leftnode>
+			<rightnode type="expr">
+				<expr oper="equal">
+					<leftnode type="var" value="Product2.id" />
+					<righnode type="const" value="hhh" />
+				</expr>
+			</rightnode>
+		</expr>
+	</leftnode>
+	<rightnode type="expr">
+		<expr oper="equal">
+			<leftnode type="var" value="Product1.repaymentMode"/>
+			<righnode type="const" value="dfdhhh" />
+		</expr>
+	</rightnode>
+</expr>
+</expression-config>
