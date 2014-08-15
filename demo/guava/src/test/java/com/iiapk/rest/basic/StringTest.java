@@ -104,7 +104,8 @@ public class StringTest {
 	
 	@Test
 	public void optional(){
-		Optional<Integer> possible = Optional.of(5);
+		Optional<List> list = null;
+		Optional possible = Optional.of(list);
 		Assert.assertSame(possible.get(),5);
 		Assert.assertTrue(possible.isPresent());
 		
