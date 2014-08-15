@@ -24,6 +24,7 @@
 		<module>redis</module>
 		-->
 		<module>cxf</module>
+		<module>guava</module>
 		
 	</modules>
 
